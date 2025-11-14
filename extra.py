@@ -29,9 +29,11 @@ plt.show()
 ####is 190 mm,  representing the length of the two species and indicating that 190 mm is the most common size.
 
  #What happens if you vary the amount of bins in the plot? Why?
-#### when bins gets bigger  it's harder to distinguish the groups that are present in the data. therfore hard to its more confusing and hard to understand.
-#### when bins are smaller the widith of the histogram bars gets bigger. and easir to understand the data maybe good for first
-#### look but this can hide important information. 
+#### with more bins we get smaller bars and it's harder to distinguish the groups that are present in the data.its also more confusing and hard to understand.
+#### fewer bins like 5 showed bigger bars it is also not perfect since the species groups are also lost. 
+### the reason for this is that More bins shows finer details but can show more noise, 
+####while fewer bins make the data smoother but may hide important information.
+
  #Add appropriate y and x-labels, as well as a title.
  #Save the plot.
 
@@ -48,7 +50,8 @@ plt.show()
 
 #Read the data CNV_log2_skin_melanoma.csv from the practice dugga using pandas.
 
- #   Create a violinplot (the seaborn package is useful for this) with chromosome on the x-axis and cnv_log2 on the y-axis. Add informative titles and save the plot.
+ #   Create a violinplot (the seaborn package is useful for this) with chromosome on the x-axis and cnv_log2 on the y-axis.
+ # Add informative titles and save the plot.
 
   #  What do you see? Which chromosome(s) has the largest CNV interval? Which chromosome(s) has the smallest interval? Do the intervals add up with the numbers in the dataframe you used for the plot?
 
@@ -60,10 +63,11 @@ import pandas as pd
 cnv_df = pd.read_csv("CNV_log2_skin_melanoma.csv")
 
 plt.figure(figsize=(12,6))
-sns.violinplot(x='chromosome', y='cnv_log2', data=cnv_df, inner='quartile', palette='Set2')
-plt.title("CNV Log2 Distribution Across Chromosomes")
+sns.violinplot(x='chromosome', y='cnv_log2', data=cnv_df, inner='quartile', palette='Set2')# 
+plt.title("CNV Log2 Distribution Across Chromosomes",   fontsize=16, fontweight='bold')
 plt.xlabel("Chromosome")
 plt.ylabel("CNV log2")
-plt.grid(axis='y')
+plt.xticks(rotation=45) #
+plt.grid(axis='y') #
 plt.savefig("violin_cnv.png", dpi=300)
 plt.show() 
