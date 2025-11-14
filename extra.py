@@ -69,9 +69,14 @@ plt.show()
 
    # Load CNV data
 
+if len(sys.argv) < 2:
+    print("Usage: python extra.py CNV_log2_skin_melanoma.csv")
+    sys.exit()
 
 cnv_file = sys.argv[1]
 cnv_df = pd.read_csv(cnv_file)
+cnv_df["cnv_log2"] = pd.to_numeric(cnv_df["cnv_log2"], errors="coerce")
+
 plt.figure(figsize=(12,6))
 sns.violinplot(x='chromosome', y='cnv_log2', data=cnv_df, inner='quartile', palette='Set2')# 
 plt.title("CNV Log2 Distribution Across Chromosomes",   fontsize=16, fontweight='bold') #
