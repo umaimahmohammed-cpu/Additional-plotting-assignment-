@@ -23,13 +23,20 @@ plt.savefig('penguin_scatterplot.png', dpi=300)
 plt.show()
 # 4.3 Plot a distribution plot of the penguin flipper length using a histogram.
  #What does this plot show? What are some conclusions you can draw from it?
+####This plot shows the distribution of the penguin flipper length in all species. . The plot is clearly showing two groups, 
+####like the scatterplot above the first group comprises the Adélie and shinstrop species from 180 to 200 mm, ,
+####and the second group is the gento species from 210 to 230 mm .The plot also shows that the highst count for penguins
+####is 190 mm,  representing the length of the two species and indicating that 190 mm is the most common size.
 
  #What happens if you vary the amount of bins in the plot? Why?
+#### when bins gets bigger  it's harder to distinguish the groups that are present in the data. therfore hard to its more confusing and hard to understand.
+#### when bins are smaller the widith of the histogram bars gets bigger. and easir to understand the data maybe good for first
+#### look but this can hide important information. 
  #Add appropriate y and x-labels, as well as a title.
  #Save the plot.
 
 
-plt.hist(penguins_clean['flipper_length_mm'], bins=20, edgecolor='black')
+plt.hist(penguins_clean['flipper_length_mm'], bins=20 , edgecolor='black')
 plt.title("  Flipper Length distribution of Penguin")
 plt.xlabel("Flipper Length (mm)")
 plt.ylabel("Count")
