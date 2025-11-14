@@ -1,6 +1,8 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
+import sys
+
 
 #4.1 Load the penguins dataset using the seaborn module. Remove any rows with missing values. Hint: Check out how to use the dropna() function.
 
@@ -67,8 +69,9 @@ plt.show()
 
    # Load CNV data
 
-cnv_df = pd.read_csv("CNV_log2_skin_melanoma.csv")
 
+cnv_file = sys.argv[1]
+cnv_df = pd.read_csv(cnv_file)
 plt.figure(figsize=(12,6))
 sns.violinplot(x='chromosome', y='cnv_log2', data=cnv_df, inner='quartile', palette='Set2')# 
 plt.title("CNV Log2 Distribution Across Chromosomes",   fontsize=16, fontweight='bold') #
